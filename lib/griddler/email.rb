@@ -57,8 +57,8 @@ module Griddler
     end
 
     def text_or_sanitized_html
-      text = clean_text(params.fetch(:text, ''))
-      text.presence || clean_html(params.fetch(:html, '')).presence
+      text = clean_text(params.fetch(:text, '').to_s)
+      text.presence || clean_html(params.fetch(:html, '').to_s).presence
     end
 
     def clean_text(text)

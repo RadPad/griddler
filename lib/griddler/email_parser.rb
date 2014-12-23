@@ -60,7 +60,7 @@ module Griddler::EmailParser
   end
 
   def self.extract_name(full_address)
-    full_address = full_address.strip
+    full_address = full_address.to_s.strip
     name = full_address.to_s.split('<').first.strip
     if name.present? && name != full_address
       name

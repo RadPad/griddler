@@ -84,6 +84,9 @@ module Griddler::EmailParser
   end
 
   def self.remove_reply_portion(body)
+
+    body = body.to_s.gsub(/\s{500,}/, '')
+
     regex_split_points.inject(body) do |result, split_point|
       result.split(split_point).first || ""
     end
